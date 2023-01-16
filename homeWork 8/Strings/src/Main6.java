@@ -14,12 +14,13 @@ public class Main6 {
         String string = "[A-Za-zа-яА-я ]+";
 
         try {
-            if (age > 100 || age < 0) {
-                throw new IncorrectInfoException("Некорректный возраст", age);
-            }
-
             if (name.length() > 200 || !Pattern.matches(string, name)) {
-                throw new IncorrectInfoException("Некорректное имя", name);
+                System.out.println("Некорректное имя");
+                throw new IncorrectInfoException(name);
+            }
+            if (age > 100 || age < 0) {
+                System.out.println("Некорректный возраст");
+                throw new IncorrectInfoException(age);
             }
         } catch (IncorrectInfoException ex) {
             ex.printStackTrace();
